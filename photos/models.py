@@ -11,3 +11,58 @@ class Images(models.Model):
     def search_image(cls,category):
         images = cls.objects.filter(image_category_name = category )
         return images
+
+    @classmethod
+    def get_all_images(cls):
+        images=cls.objects.all()
+        return images 
+
+    @classmethod
+    def save_image(self):
+        self.save()
+
+    @classmethod 
+    def delete_image(self):
+        self.delete()
+
+    @classmethod 
+    def get_image_by_id(cls,id):
+        image = cls.objects.filter(id=id).all()
+        return image 
+
+    @classmethod 
+    def filter_by_location(cls,location):
+        images_location = cls.objects.filter(image_location_name=location)
+        return images_location 
+
+    def __str__(self):
+        return self.name 
+
+class Location(models.Model):
+    locations=(
+        ('Nairobi','Nairobi'),
+        ('Turkey', 'Turkey'),
+        ('Nakuru', 'Nakuru'),
+        ('Paris', 'Paris'),
+        ('China', 'China')
+        ('Mombasa', 'Mombasa')
+    )
+    locs = models.CharField(max_length = 255, choices = locations)
+
+    class Meta:
+        verbose_name_plural = 'Location'
+
+    @classmethod 
+    def save_location(self):
+        self.save()
+
+    @classmethod
+    def delete_location(self):
+        self.delete()
+
+    @classmethod 
+    def update_locs(cls, id, new_locs):
+        cls.objects.filter(id=id).update(locs=new_locs)
+
+    def __str__(self):
+        return f"{self.locs}"
