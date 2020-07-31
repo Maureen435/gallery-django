@@ -66,3 +66,29 @@ class Location(models.Model):
 
     def __str__(self):
         return f"{self.locs}"
+
+class Category(models.Model):
+    categories = (
+        ('Flowers', 'Flowers'),
+        ('Articles', 'Articles'),
+        ('Animals', 'Animals'),
+        ('People', 'People')
+    )
+    cate = models.CharField(max_lenght = 255, choices = categories)
+    class Meta:
+        verbose_name_plural = 'categories'
+
+    @classmethod 
+    def save_category)(self):
+        self.save()
+
+    @classmethod 
+    def delete_category(self):
+        self.delete()
+
+    @classmethod 
+    def update_cate(cls, id, new_cate):
+        cls.objects.filter(id=id).update(cate=new_cate)
+
+    def __str__(self):
+        return f"{self.cate}"
