@@ -44,7 +44,7 @@ class Location(models.Model):
         ('Turkey', 'Turkey'),
         ('Nakuru', 'Nakuru'),
         ('Paris', 'Paris'),
-        ('China', 'China')
+        ('China', 'China'),
         ('Mombasa', 'Mombasa')
     )
     locs = models.CharField(max_length = 255, choices = locations)
@@ -74,12 +74,12 @@ class Category(models.Model):
         ('Animals', 'Animals'),
         ('People', 'People')
     )
-    cate = models.CharField(max_lenght = 255, choices = categories)
+    cate = models.CharField(max_length = 255, choices = categories)
     class Meta:
         verbose_name_plural = 'categories'
 
     @classmethod 
-    def save_category)(self):
+    def save_category(self):
         self.save()
 
     @classmethod 
