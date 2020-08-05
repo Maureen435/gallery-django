@@ -17,9 +17,9 @@
 <br>
 <div class="container-fluid display">
     <div class="row">
-        {% for image in image %}
+        {% for image in images %}
         <div class="col-sm-12 col-md-6 col-lg-3">
-            <img src="{{image.image.url}}" class="img-fluid img-thumbnail img-responsive" alt="image" height="300px" width="300px"
+            <img src="{{post.image.url}}" class="img-fluid img-thumbnail img-responsive" alt="image" height="300px" width="300px"
                data-toggle="modal" data-target="#{{image.name}}{{image.id}}">
         </div>
         <div class="modal fade" id="{{image.name}}{{image.id}}" tabindex="-1" role="dialog" 
@@ -31,7 +31,7 @@
                     <p>{{image.description}}</p>
                 </div>
                 <div class="modal-body text-center">
-                    <img src="{{image.image.url}}" alt="" width="100%" height="100%">
+                    <img src="{{post.image}}" alt="" width="100%" height="100%">
                 </div>
                 <div class="modal-footer">
                     <div class="form-group row">
@@ -40,8 +40,8 @@
                             <button class="btn btn-sm btn-outline-info" onclick="myFunction()">Copy</button>
                         </div>
                     </div>
-                    <span>Location:{{image.image_location}}</span>
-                    <span>Category:{{image.image_category}}</span>
+                    <span>Location:{{post.image_location}}</span>
+                    <span>Category:{{post.image_category}}</span>
                     <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">Close</button>
                 </div>
             </div>
